@@ -7,6 +7,9 @@ export default function MessagesForm() {
     function handleSubmit(e) {
         e.preventDefault();
         //onsubmit logic here
+        if (text.trim() === "") return;
+
+        
     }
 
     function handleChange(e) {
