@@ -5,82 +5,85 @@ import MessagesContainer from "./Components/MessagesContainer/MessagesContainer"
 import { getRandomName, getRandomColor } from "./scripts/getRandom.js";
 
 function App() {
-  const [members, setMembers] = useState(null);
+    const [members, setMembers] = useState(null);
 
-  useEffect(() => {
-    const drone = new window.Scaledrone("PpOGDNqHIEJBEr4Z", {
-      data: {
-        name: getRandomName(),
-        color: getRandomColor(),
-      },
-    });
+    useEffect(() => {
+        const drone = new window.Scaledrone("PpOGDNqHIEJBEr4Z", {
+            data: {
+                name: getRandomName(),
+                color: getRandomColor(),
+            },
+        });
 
-    const room = drone.subscribe("observable-mg_channel1");
+        const room = drone.subscribe("observable-mg_channel1");
 
-    room.on("members", (members) => {
-      setMembers(members);
-    });
+        room.on("members", (members) => {
+            setMembers(members);
+        });
 
-    room.on("member_join", (member) => {
-      setMembers((prevMembers) => [...prevMembers, member]);
-    });
-  }, []);
+        room.on("member_join", (member) => {
+            setMembers((prevMembers) => [...prevMembers, member]);
+        });
 
- //radi, ali se na pocetku kreiraju
+        room.on("member_leave", ({ id }) => {
+            const index = members.findIndex((member) => member.id === id);
+            members.splice(index, 1);
+        });
+    }, []);
 
+    //radi, ali se na pocetku kreiraju
 
-  // //list of online members
-  // room.on("members", (member) => {
-  //     setMembers(member);
-  // });
+    // //list of online members
+    // room.on("members", (member) => {
+    //     setMembers(member);
+    // });
 
-  //         //user joined room
-  //         .on("member_join", (member) => {
-  //             members.push(member);
-  //             updateMembersDOM(members);
-  //         })
+    //         //user joined room
+    //         .on("member_join", (member) => {
+    //             members.push(member);
+    //             updateMembersDOM(members);
+    //         })
 
-  //         //user left room
-  //         .on("member_leave", ({ id }) => {
-  //             const index = members.findIndex((member) => member.id === id);
-  //             members.splice(index, 1);
-  //             updateMembersDOM(members);
-  //         })
+    //         //user left room
+    //         .on("member_leave", ({ id }) => {
+    //             const index = members.findIndex((member) => member.id === id);
+    //             members.splice(index, 1);
+    //             updateMembersDOM(members);
+    //         })
 
-  //         .on("message", (message) => {
-  //             const { data, clientId, member } = message;
-  //             const side =
-  //                 clientId === drone.clientId
-  //                     ? "message-right"
-  //                     : "message-left";
-  //             createMessageElement(data, member, side);
-  //         });
-  //     //sending message
-  //     DOM.form.addEventListener("submit", sendMessage);
+    //         .on("message", (message) => {
+    //             const { data, clientId, member } = message;
+    //             const side =
+    //                 clientId === drone.clientId
+    //                     ? "message-right"
+    //                     : "message-left";
+    //             createMessageElement(data, member, side);
+    //         });
+    //     //sending message
+    //     DOM.form.addEventListener("submit", sendMessage);
 
-  //     function sendMessage() {
-  //         const value = DOM.input.value;
-  //         if (value === "") {
-  //             return;
-  //         }
-  //         DOM.input.value = "";
-  //         drone.publish({
-  //             room: "observable-mg_channel1",
-  //             message: value,
-  //         });
-  //     }
-  // });
+    //     function sendMessage() {
+    //         const value = DOM.input.value;
+    //         if (value === "") {
+    //             return;
+    //         }
+    //         DOM.input.value = "";
+    //         drone.publish({
+    //             room: "observable-mg_channel1",
+    //             message: value,
+    //         });
+    //     }
+    // });
 
-  return (
-    <div className="container">
-      <MembersContainer members={members} />
-      <MessagesContainer />
-    </div>
-  );
+    return (
+        <div className="container">
+            <MembersContainer members={members} />
+            <MessagesContainer />
+        </div>
+    );
 }
 
 export default App;
-
 
 //text iz ai-a
 /**import React, { useState, useEffect } from "react";
