@@ -5,91 +5,158 @@ import MessagesContainer from "./Components/MessagesContainer/MessagesContainer"
 import { getRandomName, getRandomColor } from "./scripts/getRandom.js";
 
 function App() {
-    const [members, setMembers] = useState(null);
-    const [messages, setMessages] = useState(null);
-    // const [drone, setDrone] = useState(null);
-    const [room, setRoom] = useState(null);
+  const [members, setMembers] = useState(null);
 
-    const CHANNEL_ID = "PpOGDNqHIEJBEr4Z";
+  useEffect(() => {
+    const drone = new window.Scaledrone("PpOGDNqHIEJBEr4Z", {
+      data: {
+        name: getRandomName(),
+        color: getRandomColor(),
+      },
+    });
 
-    useEffect(() => {
-        const drone = new window.Scaledrone(CHANNEL_ID, {
-            data: {
-                //random user name, surname, and color
-                name: getRandomName(),
-                color: getRandomColor(),
-            },
-        });
-        drone.on("open", (error) => {
-            if (error) {
-                return console.error(error);
-            }
-            console.log("Successfully connected to Scaledrone");
-        });
-        const room = drone.subscribe("observable-mg_channel1");
-        room.on("open", (error) => {
-            if (error) {
-                return console.error(error);
-            }
-            console.log("Successfully joined room");
-        });
-        setRoom(room);
-        // setDrone(drone);
-    }, []);
+    const room = drone.subscribe("observable-mg_channel1");
 
-    //sada treba uzeti taj setani room i useefect na njega, tak dok se njemu promjeni stanje, da updejta
-    //probati povuci membere i updejtati dok se novi joina
-    
-    // //list of online members
-    // room.on("members", (member) => {
-    //     setMembers(member);
-    // });
+    room.on("members", (members) => {
+      setMembers(members);
+    });
+
+    room.on("member_join", (member) => {
+      setMembers((prevMembers) => [...prevMembers, member]);
+    });
+  }, []);
+
+ //radi, ali se na pocetku kreiraju
 
 
+  // //list of online members
+  // room.on("members", (member) => {
+  //     setMembers(member);
+  // });
 
-    //         //user joined room
-    //         .on("member_join", (member) => {
-    //             members.push(member);
-    //             updateMembersDOM(members);
-    //         })
+  //         //user joined room
+  //         .on("member_join", (member) => {
+  //             members.push(member);
+  //             updateMembersDOM(members);
+  //         })
 
-    //         //user left room
-    //         .on("member_leave", ({ id }) => {
-    //             const index = members.findIndex((member) => member.id === id);
-    //             members.splice(index, 1);
-    //             updateMembersDOM(members);
-    //         })
+  //         //user left room
+  //         .on("member_leave", ({ id }) => {
+  //             const index = members.findIndex((member) => member.id === id);
+  //             members.splice(index, 1);
+  //             updateMembersDOM(members);
+  //         })
 
-    //         .on("message", (message) => {
-    //             const { data, clientId, member } = message;
-    //             const side =
-    //                 clientId === drone.clientId
-    //                     ? "message-right"
-    //                     : "message-left";
-    //             createMessageElement(data, member, side);
-    //         });
-    //     //sending message
-    //     DOM.form.addEventListener("submit", sendMessage);
+  //         .on("message", (message) => {
+  //             const { data, clientId, member } = message;
+  //             const side =
+  //                 clientId === drone.clientId
+  //                     ? "message-right"
+  //                     : "message-left";
+  //             createMessageElement(data, member, side);
+  //         });
+  //     //sending message
+  //     DOM.form.addEventListener("submit", sendMessage);
 
-    //     function sendMessage() {
-    //         const value = DOM.input.value;
-    //         if (value === "") {
-    //             return;
-    //         }
-    //         DOM.input.value = "";
-    //         drone.publish({
-    //             room: "observable-mg_channel1",
-    //             message: value,
-    //         });
-    //     }
-    // });
+  //     function sendMessage() {
+  //         const value = DOM.input.value;
+  //         if (value === "") {
+  //             return;
+  //         }
+  //         DOM.input.value = "";
+  //         drone.publish({
+  //             room: "observable-mg_channel1",
+  //             message: value,
+  //         });
+  //     }
+  // });
 
-    return (
-        <div className="container">
-            <MembersContainer members={members} />
-            <MessagesContainer />
-        </div>
-    );
+  return (
+    <div className="container">
+      <MembersContainer members={members} />
+      <MessagesContainer />
+    </div>
+  );
 }
 
 export default App;
+
+
+//text iz ai-a
+/**import React, { useState, useEffect } from "react";
+import { getRandomName, getRandomColor } from "./getRandom.js";
+import { updateMembersDOM, DOM, createMessageElement } from "./getDOM.js";
+
+function App() {
+  const [members, setMembers] = useState([]);
+  const [value, setValue] = useState("");
+
+  useEffect(() => {
+    const CHANNEL_ID = "PpOGDNqHIEJBEr4Z";
+    const drone = new Scaledrone(CHANNEL_ID, {
+      data: {
+        name: getRandomName(),
+        color: getRandomColor(),
+      },
+    });
+
+    const room = drone.subscribe("observable-mg_channel1");
+
+    room.on("members", (members) => {
+      setMembers(members);
+      updateMembersDOM(members);
+    });
+
+    room.on("member_join", (member) => {
+      setMembers((prevMembers) => [...prevMembers, member]);
+      updateMembersDOM(members);
+    });
+
+    room.on("member_leave", ({ id }) => {
+      setMembers((prevMembers) =>
+        prevMembers.filter((member) => member.id !== id)
+      );
+      updateMembersDOM(members);
+    });
+
+    room.on("message", (message) => {
+      const { data, clientId, member } = message;
+      const side =
+        clientId === drone.clientId ? "message-right" : "message-left";
+      createMessageElement(data, member, side);
+    });
+  }, []);
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (value === "") {
+      return;
+    }
+    setValue("");
+    drone.publish({
+      room: "observable-mg_channel1",
+      message: value,
+    });
+  }
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={value} onChange={handleChange} />
+        <button type="submit">Send</button>
+      </form>
+      <ul>
+        {members.map((member) => (
+          <li key={member.id}>{member.clientData.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
+ */
