@@ -1,9 +1,8 @@
 import React from "react";
 import styles from "./MembersContainer.module.css";
 
-export default function MembersContainer({ members, room }) {
+export default function MembersContainer({ members }) {
   const membersNum = members ? members.lenght : 0;
-  console.log(membersNum);
 
   return (
     <div className={styles.membersContainer}>
