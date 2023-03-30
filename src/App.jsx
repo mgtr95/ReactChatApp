@@ -39,11 +39,6 @@ function App() {
         ...prevMessages,
         { message: message, side: side },
       ]);
-    //   const messageID = message.id;
-    //   const messageEl = document.getElementById(messageID);
-    //   if (messageEl) {
-    //   messageEl.scrollIntoView({ behavior: "smooth", block: "end" });
-    //   }
     });
     setDrone(drone);
   }, []);
@@ -67,5 +62,3 @@ function App() {
 }
 
 export default App;
-
-// radi, dodati fokus na novu poruku i brojac usera
