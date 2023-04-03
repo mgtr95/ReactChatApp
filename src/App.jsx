@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import MembersContainer from "./Components/MembersContainer/MembersContainer";
 import MessagesContainer from "./Components/MessagesContainer/MessagesContainer";
-import { getRandomName, getRandomColor } from "./scripts/getRandom.js";
+import { getRandomName, getRandomColor } from "./Modules/getRandom.js";
 
 function App() {
   const [members, setMembers] = useState(null);

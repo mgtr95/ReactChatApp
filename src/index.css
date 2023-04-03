@@ -1,51 +1,62 @@
 body {
-    background: url(./subtle-prism.svg) repeat center center fixed;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-        "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    box-sizing: border-box;
-    padding: 1em;
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    
+  background: url(./subtle-prism.svg) repeat center center fixed;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  padding: 1em;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-        monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 * {
-    border-radius: 20px;
+  border-radius: 20px;
 }
 
 span {
-    display: block !important;
-    word-wrap: break-word;
+  display: block !important;
+  word-wrap: break-word;
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
+  height: 4px;   
 }
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #e3e3e3;
-    border-radius: 5px;
-    box-shadow: inset 0 0 6px rgba(139, 139, 139, 0.3);
+  background: #e3e3e3;
+  border-radius: 5px;
+  box-shadow: inset 0 0 6px rgba(139, 139, 139, 0.3);
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #bebebe;
-    border-radius: 5px;
+  background: #bebebe;
+  border-radius: 5px;
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #aeaeae;
-    border-radius: 5px;
+  background: #aeaeae;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 750px) {
+  body {
+    padding: 0;
+  }
+
+   #root {
+    margin: 0;
+    padding: 0;
+   }
 }
