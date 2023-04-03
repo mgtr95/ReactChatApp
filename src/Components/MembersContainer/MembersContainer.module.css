@@ -45,16 +45,18 @@
     height: 12%;
     overflow-x: auto;
     overflow-y: hidden;
-    gap: 0.5em;
+    gap: 0.2em;
     flex-direction: row;
     border-radius: 0;
   }
   .member {
     height: 50px;
+    margin-right: 5px;
   }
 
   .membersCount{
     height: 50px;
     word-wrap:break-word;
+    margin: 5px;
   }
 }

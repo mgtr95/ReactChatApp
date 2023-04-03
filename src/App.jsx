@@ -10,7 +10,7 @@ function App() {
   const [drone, setDrone] = useState(null);
 
   useEffect(() => {
-    const drone = new window.Scaledrone("PpOGDNqHIEJBEr4Z", {
+    const drone = new window.Scaledrone("mOtpDWAhBaxxXaft", {
       data: {
         name: getRandomName(),
         color: getRandomColor(),
