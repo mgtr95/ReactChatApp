@@ -1,28 +1,54 @@
-import React from "react";
-import styles from "./LoginContainer.module.css"
+import React, { useState } from "react";
+import styles from "./LoginContainer.module.css";
+import { useNavigate } from "react-router-dom";
 
-export default function LoginContainer() {
+export default function LoginContainer({ chatRoute, handleLoginSubmit }) {
+    const [text, setText] = useState("");
+    const [avatar, setAvatar] = useState("");
+    const navigate = useNavigate();
+
+    function handleLogin(e) {
+        e.preventDefault();
+
+        console.log(text);
+        if (text.trim() === "") return;
+
+        handleLoginSubmit(text, avatar);
+        setText("");
+        navigate(chatRoute);
+    }
+
+    function handleTextChange(e) {
+        const value = e.target.value;
+        setText(value);
+    }
+
+    function handleAvatarChange(e) {
+        const value = e.target.value;
+        setAvatar(value);
+    }
+
     return (
-        <form class="login-form" onsubmit="return false;">
-            <label class="channel-label">
-                Channel ID
-                <input
-                    class="channel-input"
-                    placeholder="channel ID"
-                    type="text"
-                />
-            </label>
-            <label class="username-label">
+        <form className={styles.loginForm} onSubmit={handleLogin}>
+            <label className={styles.usernameLabel}>
                 Username
                 <input
-                    class="username-input"
+                    className={styles.usernameInput}
                     type="text"
                     placeholder="username"
+                    value={text}
+                    onChange={handleTextChange}
                 />
             </label>
-            <label class="avatar-label">
+            <label className={styles.avatarLabel}>
                 Avatar
-                <select class="avatar-dropdown" name="avatars" id="avatars">
+                <select
+                    className={styles.avatarDropdown}
+                    name="avatars"
+                    id="avatars"
+                    value={avatar}
+                    onChange={handleAvatarChange}
+                >
                     <option value="1">&#x1F600;</option>
                     <option value="2">&#x1F601;</option>
                     <option value="3">&#x1F602;</option>
@@ -45,7 +71,13 @@ export default function LoginContainer() {
                     <option value="20">&#x1F613;</option>
                 </select>
             </label>
-            <input class="login-button" value="Login" type="submit" />
+            <button
+                className={styles.loginButton}
+                type="submit"
+                onClick={handleLogin}
+            >
+                Login
+            </button>
         </form>
     );
 }
