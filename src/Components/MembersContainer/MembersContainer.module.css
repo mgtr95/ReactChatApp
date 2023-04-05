@@ -1,3 +1,23 @@
+span {
+  margin-bottom: auto;
+}
+
+button {
+  width: 100%;
+  background-color: rgb(166, 166, 166);
+  color: white;
+  padding: 5px 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.5s;
+  box-shadow: 0px 2px 4px 1px rgb(148, 148, 148);
+}
+
+button:hover {
+  background-color: rgb(96, 98, 127);
+}
+
 .membersContainer {
   width: 25%;
   display: flex;
@@ -25,6 +45,10 @@
 }
 
 .member {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: max-content;
   padding: 8px;
   position: relative;
   background-color: rgb(100, 112, 227);
@@ -50,13 +74,23 @@
     border-radius: 0;
   }
   .member {
-    height: 50px;
-    margin-right: 5px;
+    /* height: 50px; */
+    padding: 0;
+    margin: 1.5em 0.5em;
   }
 
-  .membersCount{
-    height: 50px;
-    word-wrap:break-word;
-    margin: 5px;
+  .membersCount {
+    word-wrap: break-word;
+    padding: 0;
+    width: 70px;
+    margin: 1.5em 0.5em;
+  }
+  span {
+    margin-right: auto;
+  }
+  button {
+    padding: 0;
+    width: 70px;
+    margin: 1.5em 0.5em;
   }
 }

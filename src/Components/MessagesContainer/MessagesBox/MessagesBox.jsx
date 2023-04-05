@@ -26,7 +26,8 @@ export default function MessagesBox({ messages }) {
               }`}
             >
               <span className={styles.messageUser}>
-                {message.message.member.clientData.name}
+                {message.message.member.clientData.name}{" "}
+                {message.message.member.clientData.avatar}
               </span>
               <span className={styles.messageValue}>
                 {message.message.data}

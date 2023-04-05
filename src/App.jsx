@@ -18,7 +18,6 @@ function App() {
   };
 
   const handleLoginSubmit = (text, avatar) => {
-
     const droneInstance = new window.Scaledrone("mOtpDWAhBaxxXaft", {
       data: {
         name: text,
@@ -43,8 +42,8 @@ function App() {
     });
 
     room.on("message", (message) => {
-        const side =
-            message.clientId === droneInstance.clientId ? "right" : "left";
+      const side =
+        message.clientId === droneInstance.clientId ? "right" : "left";
       setMessages((prevMessages) => [
         ...prevMessages,
         { message: message, side: side },
