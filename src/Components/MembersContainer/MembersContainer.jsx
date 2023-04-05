@@ -12,7 +12,7 @@ export default function MembersContainer({ members }) {
       {members &&
         members.map((member, key) => (
           <div key={member.id + key} className={styles.member}>
-            {member.clientData.name}
+            {member.clientData.name} {member.clientData.avatar}
           </div>
         ))}
     </div>
