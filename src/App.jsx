@@ -4,6 +4,7 @@ import MembersContainer from "./Components/MembersContainer/MembersContainer";
 import MessagesContainer from "./Components/MessagesContainer/MessagesContainer";
 import LoginContainer from "./Components/LoginContainer/LoginContainer";
 import { Route, Routes } from "react-router-dom";
+import LogoutPrompt from "./Components/LogoutPrompt/LogoutPrompt";
 
 function App() {
     const [members, setMembers] = useState(null);
@@ -68,6 +69,7 @@ function App() {
 
     const LOGIN_ROUTE = "/";
     const CHAT_ROUTE = "/chat";
+    const LOGOUT_ROUTE = "/prompt"
 
     return (
         <div className="container">
@@ -86,7 +88,7 @@ function App() {
                     element={[
                         <MembersContainer
                             members={members}
-                            loginRoute={LOGIN_ROUTE}
+                            logoutRoute={LOGOUT_ROUTE}
                             drone={drone}
                         />,
                         <MessagesContainer
@@ -94,6 +96,16 @@ function App() {
                             messages={messages}
                         />,
                     ]}
+                />
+                <Route
+                    path={LOGOUT_ROUTE}
+                    element={
+                        <LogoutPrompt
+                        loginRoute = {LOGIN_ROUTE}
+                        chatRoute = {CHAT_ROUTE}
+                        drone={drone}
+                        />
+                    }
                 />
             </Routes>
         </div>

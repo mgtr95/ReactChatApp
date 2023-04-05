@@ -2,15 +2,15 @@ import React from "react";
 import styles from "./MembersContainer.module.css";
 import { useNavigate } from "react-router";
 
-export default function MembersContainer({ members, loginRoute, drone }) {
+export default function MembersContainer({ members, logoutRoute, drone }) {
     const navigate = useNavigate();
     const membersNum = members ? members.length : 0;
 
     function handleLogout(e) {
         e.preventDefault();
 
-        drone.close();
-        navigate(loginRoute);
+        // drone.close();
+        navigate(logoutRoute);
     }
 
     return (
