@@ -10,7 +10,6 @@ export default function LoginContainer({ chatRoute, handleLoginSubmit }) {
     function handleLogin(e) {
         e.preventDefault();
 
-        console.log(text);
         if (text.trim() === "") return;
 
         handleLoginSubmit(text, avatar);

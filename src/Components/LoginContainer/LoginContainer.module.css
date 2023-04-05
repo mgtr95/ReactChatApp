@@ -1,45 +1,74 @@
 .loginForm {
-    width: 400px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+  color: rgb(92, 92, 92);
+  font-weight: 400;
+}
+
+input,
+select {
+  width: 250px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #e0e0e0;
+  margin-left: 10px;
+  box-sizing: border-box;
+  transition: background-color 0.5s;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid rgb(168, 168, 168);
+}
+
+input:hover,
+select:hover {
+  background-color: rgb(214, 214, 214);
+}
+
+.loginButton {
+  width: 100%;
+  background-color: rgb(119, 129, 223);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.5s;
+}
+
+.loginButton:hover {
+  background-color: rgb(97, 108, 210);
+}
+
+@media only screen and (max-width: 750px) {
+  .loginForm {
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 1em;
-}
+    margin-top: 20em;
+  }
 
-label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 10px;
-    color: rgb(92, 92, 92);
-    font-weight: 400;
-}
-
-input,
-select {
-    width: 250px;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    background-color: #e0e0e0;
-    margin-left: 10px;
-    box-sizing: border-box;
-}
-
-.loginButton {
-    width: 100%;
-    background-color: rgb(119, 129, 223);
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.5s;
-}
-
-.loginButton:hover {
-    background-color: rgb(97, 108, 210);
+  input,
+  select {
+    width: 200px;
+    min-width: 100px;
+  }
 }

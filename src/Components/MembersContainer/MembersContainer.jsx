@@ -10,8 +10,8 @@ export default function MembersContainer({ members }) {
         {membersNum} user{membersNum === 1 ? "" : "s"} in room
       </div>
       {members &&
-        members.map((member) => (
-          <div key={member.id} className={styles.member}>
+        members.map((member, key) => (
+          <div key={member.id + key} className={styles.member}>
             {member.clientData.name}
           </div>
         ))}
