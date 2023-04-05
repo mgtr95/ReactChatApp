@@ -105,6 +105,7 @@ export default function LoginContainer({ chatRoute, handleLoginSubmit }) {
                 >
                     Login
                 </button>
+                <p>Powered by Scaledrone</p>
             </form>
         </div>
     );
