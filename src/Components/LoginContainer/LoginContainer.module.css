@@ -36,6 +36,7 @@ select {
   margin-left: 10px;
   box-sizing: border-box;
   transition: background-color 0.5s;
+  box-shadow: 0px 0px 4px 1px rgb(196, 196, 196);
 }
 
 input:focus,
