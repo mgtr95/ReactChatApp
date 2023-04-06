@@ -1,24 +1,24 @@
 .promptContainer {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    gap: 1em;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .buttonContainer {
-    display: flex;
-    gap: 2em;
+  display: flex;
+  gap: 2em;
 }
 
 p {
-    font-size: 23px;
-    color: gray;
+  font-size: 23px;
+  color: gray;
 }
 
 button {
-    min-width: 60px;
-    min-height: 40px;
+  min-width: 60px;
+  min-height: 40px;
 }

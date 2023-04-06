@@ -15,6 +15,7 @@ export default function MessagesForm({ handleMessageSending }) {
 
   function handleChange(e) {
     const value = e.target.value;
+    
     setText(value);
   }
 

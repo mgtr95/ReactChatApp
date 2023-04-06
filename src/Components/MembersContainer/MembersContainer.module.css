@@ -29,16 +29,6 @@ button:hover {
   max-height: inherit;
 }
 
-.membersList {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-  overflow: auto;
-  border-radius: 0;
-  padding: 5px;
-}
-
 .membersCount {
   padding-left: 10px;
   color: gray;
@@ -56,10 +46,6 @@ button:hover {
   border-radius: 15px;
   box-shadow: 0px 2px 5px 1px rgb(148, 148, 148);
   font-weight: 400;
-}
-
-.memberColor {
-  color: #f1f1f1;
 }
 
 @media only screen and (max-width: 750px) {

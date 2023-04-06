@@ -45,7 +45,6 @@
     background-color: rgb(69, 83, 212);
 }
 
-
 @media only screen and (max-width: 750px) {
     .messageForm {
       border-radius: 0;

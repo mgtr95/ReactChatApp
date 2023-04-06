@@ -60,7 +60,7 @@ export default function LoginContainer({ chatRoute, handleLoginSubmit }) {
                         onChange={handleroomNameChange}
                     />
                 </label>
-                <label className={styles.usernameLabel}>
+                <label>
                     Username
                     <input
                         type="text"

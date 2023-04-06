@@ -32,12 +32,7 @@ export default function MessagesBox({ messages }) {
               <span className={styles.messageValue}>
                 {message.message.data}
               </span>
-              <span
-                style={{
-                  fontSize: "9px",
-                  color: "rgb(90, 90, 90)",
-                }}
-              >
+              <span className={styles.messageTime}>
                 {`${time.getHours()}:${
                   (time.getMinutes() < 10 ? "0" : "") + time.getMinutes()
                 }`}
