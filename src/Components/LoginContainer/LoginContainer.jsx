@@ -46,6 +46,8 @@ export default function LoginContainer({ chatRoute, handleLoginSubmit }) {
                     Channel ID
                     <input
                         type="text"
+                        name="channel"
+                        autoComplete="on"
                         placeholder="channel ID"
                         value={channel}
                         onChange={handleChannelChange}
@@ -55,6 +57,8 @@ export default function LoginContainer({ chatRoute, handleLoginSubmit }) {
                     Room name
                     <input
                         type="text"
+                        name="room"
+                        autoComplete="on"
                         placeholder="room name"
                         value={roomName}
                         onChange={handleroomNameChange}
