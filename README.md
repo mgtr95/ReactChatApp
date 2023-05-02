@@ -2,10 +2,10 @@
 This is a simple chat application built with React and Scaledrone.
 
 ## Features
--Real-time chat using Scaledrone WebSocket
--Custom responsive design which is mobile friendly
--Personal chat room with custom username and emoji
--Simple and user-friendly design 
+- Real-time chat using Scaledrone WebSocket
+- Custom responsive design which is mobile friendly
+- Personal chat room with custom username and emoji
+- Simple and user-friendly design 
 
 ## Installation
 
