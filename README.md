@@ -26,8 +26,8 @@ To use the chat app, you must create free Scaledrone account, and simply create 
 In a chat room, you can send and receive messages in real-time.
 
 ## Technologies Used
--React
--Scaledrone
+- React
+- Scaledrone
 
 ## Contributing
 Contributions are welcome! If you have any suggestions or bug reports, please open an issue on GitHub.
