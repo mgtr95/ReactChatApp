@@ -21,6 +21,7 @@ npm start
 ```
 
 ## Usage and login
+Firstly, go to chat app page - https://mgtr95-chatapp.netlify.app/
 To use the chat app, you must create free Scaledrone account, and simply create new channel and room. You will be provided with channel ID, which you will enter on app login screen, together with room name. If you have existing channel ID and room name, just enter it on login screen.
 
 In a chat room, you can send and receive messages in real-time.
