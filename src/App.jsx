@@ -19,6 +19,8 @@ function App() {
     });
   };
 
+  //5
+
   if (drone) {
     drone.on("close", () => {
       setMembers(null);
